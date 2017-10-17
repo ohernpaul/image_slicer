@@ -2,6 +2,7 @@
 Helper functions for ``image_slicer``.
 '''
 import os
+from PIL import Image
 
 
 def get_basename(filename):
@@ -10,7 +11,7 @@ def get_basename(filename):
 
 def open_images(directory):
     """Open all images in a directory. Return tuple of Image instances."""
-    return [Image.open(file) for file in os.listdir(directory)]
+    return [Image.open(directory + file) for file in os.listdir(directory)]
 
 def get_columns_rows(filenames):
     """Derive number of columns and rows from filenames."""
